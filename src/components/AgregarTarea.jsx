@@ -63,9 +63,10 @@ export const AgregarTarea = ({ tarea, setTarea, }) => {
   };
 
   const handleCheckboxChange = (id) => {
+    console.log("Handling checkbox change for id:", id);
     dispatch({ type: "marcar", payload: id });
   };
-
+  
   const handleEditarTarea = (id, texto) => {
     setIsEditing(id);
     setEditText(texto);
@@ -98,10 +99,8 @@ export const AgregarTarea = ({ tarea, setTarea, }) => {
       {tareas.map((tarea) => (
         <div 
           key={tarea.id}
-          className={`flex items-center justify-start max-w-full p-4 break-words bg-white border border-gray-300 rounded-lg shadow-md gap-4 mt-3  ${
-            tarea.completado
-              ? " transition-colors duration-700 ease-in-out bg-gray-100"
-              : "bg-white"
+          className={`flex items-center justify-start max-w-full p-4 break-words border border-gray-300 rounded-lg shadow-md gap-4 mt-3 ${
+            tarea.completado ? "transition-colors duration-700 ease-in-out bg-gray-100" : "bg-white"
           }`}
         >
           <input
